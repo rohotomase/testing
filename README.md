@@ -1,2 +1,1 @@
-# testing
-Learning about GIT
+This is an updated readme that I've modified remotely.
