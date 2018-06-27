@@ -2,28 +2,40 @@
 
 #include <iostream>
 #include <random>
+#include <cstdint>
 
 using std::cin;
 using std::cout;
+
+class Character {
+	uint8_t _health;
+public: 
+	Character(uint8_t health) : _health(health) {}
+	void Attack(uint8_t damage) { 
+		if (damage > _health)
+			_health = 0;
+		else
+			_health -= damage;
+	}
+};
+
+class Player : public Character {
+public:
+	Player() : Character(10) {}
+};
 
 int main()
 {
 	std::random_device rd;
 	std::mt19937 gen(rd());
 	std::uniform_int_distribution<> dist(1, 10);
-	auto val = dist(gen);
 	int x;
+	Player player;
 	while (true)
 	{
-		cout << "Pick a number 1 - 10: ";
-		cin >> x;
-		if (x < 0 || x > 10)
-			continue;
-		if (x == val)
-			cout << "You got it!!!!" << std::endl;
-		else
-			cout << "Sorry, better luck next time" << std::endl;
-		cout << "Press 'x' to exit, or any other key to play again" << std::endl;
+		auto val = dist(gen);
+		player.Attack(val);
+
 		char c;
 		cin >> c;
 		if (c == 'x')
