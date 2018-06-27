@@ -1,4 +1,6 @@
+//
 // testing.cpp
+//
 
 #include <iostream>
 #include <random>
@@ -35,7 +37,7 @@ int main()
 	{
 		auto val = dist(gen);
 		player.Attack(val);
-
+		cout << "Press 'x' to exit, or any other key to play again" << std::endl;
 		char c;
 		cin >> c;
 		if (c == 'x')
