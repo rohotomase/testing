@@ -11,7 +11,6 @@ int main()
 	std::random_device rd;
 	std::mt19937 gen(rd());
 	std::uniform_int_distribution<> dist(1, 10);
-	auto val = dist(gen);
 	int x;
 	while (true)
 	{
@@ -19,6 +18,7 @@ int main()
 		cin >> x;
 		if (x < 0 || x > 10)
 			continue;
+		auto val = dist(gen);
 		if (x == val)
 			cout << "You got it!!!!" << std::endl;
 		else
