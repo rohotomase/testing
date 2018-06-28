@@ -26,8 +26,22 @@ public:
 
 class Map {
 	std::vector<char> _tiles;
+	uint16_t _w;
+	uint16_t _h;
 public:
-	Map(uint16_t w, uint16_t h) : _tiles(w*h) {}
+	Map(uint16_t w, uint16_t h) : _tiles(w*h), _w(w), _h(h) {
+		for (auto& tile : _tiles) {
+			tile = 'X';
+		}
+	}
+	void print_map() {
+		for (size_t i = 0; i < _tiles.size(); i++) {
+			cout << _tiles[i];
+			if ((i + 1) % _w == 0)
+				cout << '\n';
+		}
+		cout << std::endl;
+	}
 };
 
 int main()
@@ -39,9 +53,11 @@ int main()
 	cout << "What is your name? ";
 	std::string pc_name;
 	cin >> pc_name;
+	Map map(10, 10);
 	Player pc(pc_name);
 	while (true)
 	{
+		map.print_map();
 		auto val = dist(gen);
 		pc.attack(val);
 		cout << "Press 'x' to exit, or any other key to play again" << std::endl;
