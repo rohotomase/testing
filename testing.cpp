@@ -28,6 +28,12 @@ public:
 	Player(std::string name) : Character(name, 10) {}
 };
 
+class Map {
+	std::vector<char> _tiles;
+public:
+	Map(uint16_t w, uint16_t h) : _tiles(w*h) {}
+};
+
 int main()
 {
 	std::random_device rd;
