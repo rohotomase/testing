@@ -1,7 +1,3 @@
-//
-// testing.cpp
-//
-
 #include <iostream>
 #include <random>
 #include <cstdint>
@@ -30,8 +26,14 @@ public:
 
 class Map {
 	std::vector<char> _tiles;
+	uint16_t _w;
+	uint16_t _h;
 public:
-	Map(uint16_t w, uint16_t h) : _tiles(w*h) {}
+	Map(uint16_t w, uint16_t h) : _tiles(w*h), _w(w), _h(h) {
+		for (auto& tile : _tiles) {
+			tile = 'X';
+		}
+	}
 };
 
 int main()
