@@ -5,6 +5,7 @@
 #include <iostream>
 #include <random>
 #include <cstdint>
+#include <string>
 
 using std::cin;
 using std::cout;
@@ -24,7 +25,7 @@ public:
 
 class Player : public Character {
 public:
-	Player() : Character("player", 10) {}
+	Player(std::string name) : Character(name, 10) {}
 };
 
 int main()
@@ -33,7 +34,10 @@ int main()
 	std::mt19937 gen(rd());
 	std::uniform_int_distribution<> dist(1, 10);
 	int x;
-	Player pc;
+	cout << "What is your name? ";
+	std::string pc_name;
+	cin >> pc_name;
+	Player pc(pc_name);
 	while (true)
 	{
 		auto val = dist(gen);
