@@ -1,7 +1,3 @@
-//
-// testing.cpp
-//
-
 #include <iostream>
 #include <random>
 #include <cstdint>
