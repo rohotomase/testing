@@ -32,11 +32,11 @@ int main()
 	std::mt19937 gen(rd());
 	std::uniform_int_distribution<> dist(1, 10);
 	int x;
-	Player player;
+	Player pc;
 	while (true)
 	{
 		auto val = dist(gen);
-		player.Attack(val);
+		pc.Attack(val);
 		cout << "Press 'x' to exit, or any other key to play again" << std::endl;
 		char c;
 		cin >> c;
