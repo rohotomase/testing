@@ -10,10 +10,11 @@ using std::cin;
 using std::cout;
 
 class Character {
+	std::string _name;
 	uint8_t _health;
 public: 
-	Character(uint8_t health) : _health(health) {}
-	void Attack(uint8_t damage) { 
+	Character(std::string name, uint8_t health) : _name(name), _health(health) {}
+	void attack(uint8_t damage) { 
 		if (damage > _health)
 			_health = 0;
 		else
@@ -23,7 +24,7 @@ public:
 
 class Player : public Character {
 public:
-	Player() : Character(10) {}
+	Player() : Character("player", 10) {}
 };
 
 int main()
@@ -36,7 +37,7 @@ int main()
 	while (true)
 	{
 		auto val = dist(gen);
-		pc.Attack(val);
+		pc.attack(val);
 		cout << "Press 'x' to exit, or any other key to play again" << std::endl;
 		char c;
 		cin >> c;
