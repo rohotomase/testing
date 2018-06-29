@@ -6,11 +6,11 @@
 using std::cin;
 using std::cout;
 
-class Character {
+class character {
 	std::string _name;
 	uint8_t _health;
 public: 
-	Character(std::string name, uint8_t health) : _name(name), _health(health) {}
+	character(std::string name, uint8_t health) : _name(name), _health(health) {}
 	void attack(uint8_t damage) { 
 		if (damage > _health)
 			_health = 0;
@@ -19,17 +19,17 @@ public:
 	}
 };
 
-class Player : public Character {
+class Player : public character {
 public:
-	Player(std::string name) : Character(name, 10) {}
+	Player(std::string name) : character(name, 10) {}
 };
 
-class Map {
+class map {
 	std::vector<char> _tiles;
 	uint16_t _w;
 	uint16_t _h;
 public:
-	Map(uint16_t w, uint16_t h) : _tiles(w*h), _w(w), _h(h) {
+	map(uint16_t w, uint16_t h) : _tiles(w*h), _w(w), _h(h) {
 		for (auto& tile : _tiles) {
 			tile = 'X';
 		}
@@ -53,7 +53,7 @@ int main()
 	cout << "What is your name? ";
 	std::string pc_name;
 	cin >> pc_name;
-	Map map(10, 10);
+	map map(10, 10);
 	Player pc(pc_name);
 	while (true)
 	{
