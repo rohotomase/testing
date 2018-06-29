@@ -19,9 +19,9 @@ public:
 	}
 };
 
-class Player : public character {
+class player : public character {
 public:
-	Player(std::string name) : character(name, 10) {}
+	player(std::string name) : character(name, 10) {}
 };
 
 class map {
@@ -54,7 +54,7 @@ int main()
 	std::string pc_name;
 	cin >> pc_name;
 	map map(10, 10);
-	Player pc(pc_name);
+	player pc(pc_name);
 	while (true)
 	{
 		map.print();
