@@ -34,7 +34,7 @@ public:
 			tile = 'X';
 		}
 	}
-	void print_map() {
+	void print() {
 		for (size_t i = 0; i < _tiles.size(); i++) {
 			cout << _tiles[i];
 			if ((i + 1) % _w == 0)
@@ -57,7 +57,7 @@ int main()
 	Player pc(pc_name);
 	while (true)
 	{
-		map.print_map();
+		map.print();
 		auto val = dist(gen);
 		pc.attack(val);
 		cout << "Press 'x' to exit, or any other key to play again" << std::endl;
