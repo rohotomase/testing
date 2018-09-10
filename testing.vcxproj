@@ -147,7 +147,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="testing.cpp" />
+    <ClCompile Include="game.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />

@@ -15,11 +15,11 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="testing.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+    <None Include=".gitignore" />
   </ItemGroup>
   <ItemGroup>
-    <None Include=".gitignore" />
+    <ClCompile Include="game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
