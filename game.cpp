@@ -48,11 +48,6 @@ public:
 
 int main()
 {
-
-	int x;
-	cout << "What is your name? ";
-	std::string pc_name;
-	cin >> pc_name;
     player pc("scott", 100);
     while (true)
     {
