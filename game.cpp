@@ -6,12 +6,30 @@
 using std::cin;
 using std::cout;
 
-class character {
+std::random_device rd;
+std::mt19937 gen(rd());
+std::uniform_int_distribution<> dist(0, 10);
+
+class enemy
+{
+private:
+    uint32_t hp_;
+public:
+    enemy(std::string name, uint8_t health) : hp_(health) {}
+    void get_hit(uint8_t damage)
+    {
+        hp_ -= damage;
+    }
+};
+
+class player
+{
 	std::string _name;
 	uint8_t _health;
 public: 
-	character(std::string name, uint8_t health) : _name(name), _health(health) {}
-	void attack(uint8_t damage) { 
+	player(std::string name, uint8_t health) : _name(name), _health(health) {}
+	void attack(uint8_t damage) 
+    { 
 		if (damage > _health)
 			_health = 0;
 		else
@@ -19,53 +37,30 @@ public:
 	}
 };
 
-class player : public character {
+class new_class
+{
 public:
-	player(std::string name) : character(name, 10) {}
-};
-
-class map {
-	std::vector<char> _tiles;
-	uint16_t _w;
-	uint16_t _h;
-public:
-	map(uint16_t w, uint16_t h) : _tiles(w*h), _w(w), _h(h) {
-		for (auto& tile : _tiles) {
-			tile = 'X';
-		}
-	}
-	void print() {
-		for (size_t i = 0; i < _tiles.size(); i++) {
-			cout << _tiles[i];
-			if ((i + 1) % _w == 0)
-				cout << '\n';
-		}
-		cout << std::endl;
-	}
+    new_class()
+    {
+        cout << "new_class\n";
+    }
 };
 
 int main()
 {
-	std::random_device rd;
-	std::mt19937 gen(rd());
-	std::uniform_int_distribution<> dist(0, 10);
+
 	int x;
 	cout << "What is your name? ";
 	std::string pc_name;
 	cin >> pc_name;
-	map map(10, 10);
-	player pc(pc_name);
-	while (true)
-	{
-		map.print();
-		auto val = dist(gen);
-		pc.attack(val);
-		cout << "Press 'x' to exit, or any other key to play again" << std::endl;
-		char c;
-		cin >> c;
-		if (c == 'x')
-			break;
-	}
+
+    auto val = dist(gen);
+	pc.attack(val);
+	cout << "Press 'x' to exit, or any other key to play again" << std::endl;
+	char c;
+	cin >> c;
+	if (c == 'x')
+		break;
     return 0;
 }
 
