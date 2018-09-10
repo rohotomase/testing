@@ -53,14 +53,17 @@ int main()
 	cout << "What is your name? ";
 	std::string pc_name;
 	cin >> pc_name;
-
-    auto val = dist(gen);
-	pc.attack(val);
-	cout << "Press 'x' to exit, or any other key to play again" << std::endl;
-	char c;
-	cin >> c;
-	if (c == 'x')
-		break;
+    player pc("scott", 100);
+    while (true)
+    {
+        auto val = dist(gen);
+        pc.attack(val);
+        cout << "Press 'x' to exit, or any other key to play again" << std::endl;
+        char c;
+        cin >> c;
+        if (c == 'x')
+            break;
+    }
     return 0;
 }
 
